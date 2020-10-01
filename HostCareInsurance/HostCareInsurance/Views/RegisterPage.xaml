@@ -1,0 +1,162 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="MobileApp.RegisterPage"
+             xmlns:viewModels="clr-namespace:MobileApp.ViewModels">
+
+    <ContentPage.BindingContext>
+        <viewModels:RegisterViewModel/>
+    </ContentPage.BindingContext>
+    <ScrollView>
+    <StackLayout Padding="0">
+        <Grid>
+
+                <StackLayout Padding="0" Margin="0">
+                    <Frame BackgroundColor="White"  HeightRequest="130" HorizontalOptions="FillAndExpand">
+
+                        <StackLayout Margin="0,-40,0,0" HorizontalOptions="Center" VerticalOptions="Center">
+                            <Image Source="HostcareLogo.png"/>
+                        </StackLayout>
+
+                    </Frame>
+                </StackLayout>
+                <StackLayout Margin="10,110,10,0">
+                <Frame BackgroundColor="White" BorderColor="FloralWhite" HasShadow="True" HeightRequest="700" HorizontalOptions="FillAndExpand">
+                    <StackLayout>
+                        <StackLayout HorizontalOptions="CenterAndExpand">
+                            <Label Text="Provide your user details" TextColor="DarkBlue" FontAttributes="Bold" FontSize="20"/>
+                        </StackLayout>
+                        <StackLayout Margin="0,25,0,0">
+                            <Frame BackgroundColor="Transparent" BorderColor="DarkGray" Padding="0" Margin="0" CornerRadius="10" HorizontalOptions="FillAndExpand">
+                                <StackLayout Orientation="Horizontal">
+                                    <Frame HeightRequest="25" BackgroundColor="AliceBlue" CornerRadius="50" WidthRequest="25" Padding="0" Margin="7"></Frame>
+                                    <Entry 
+                                        Placeholder="Full Name" 
+                                        Text="{Binding FullName}" 
+                                        TextColor="Purple" 
+                                        HorizontalOptions="FillAndExpand" 
+                                        Margin="0,0,15,0"/>
+                                </StackLayout>
+                            </Frame>
+                            <Frame BackgroundColor="Transparent" BorderColor="DarkGray" Padding="0" Margin="0,10,0,0" CornerRadius="10" HorizontalOptions="FillAndExpand">
+                                <StackLayout Orientation="Horizontal">
+                                    <Frame HeightRequest="25" BackgroundColor="AliceBlue" CornerRadius="50" WidthRequest="25" Padding="0" Margin="7"></Frame>
+                                    <Entry 
+                                        Placeholder="Email" 
+                                        Text="{Binding Email}" 
+                                        TextColor="Purple" 
+                                        HorizontalOptions="FillAndExpand" 
+                                        Margin="0,0,15,0"/>
+                                </StackLayout>
+                            </Frame>
+                               
+                                <Frame BackgroundColor="Transparent" BorderColor="DarkGray" Padding="0" Margin="0,10,0,0" CornerRadius="10" HorizontalOptions="FillAndExpand">
+                                <StackLayout Orientation="Horizontal">
+                                    <Frame HeightRequest="25" BackgroundColor="AliceBlue" CornerRadius="50" WidthRequest="25" Padding="0" Margin="7"></Frame>
+                                    <Entry 
+                                        Placeholder="Address" 
+                                        Text="{Binding Address}" 
+                                        TextColor="Purple" 
+                                        HorizontalOptions="FillAndExpand" 
+                                        Margin="0,0,15,0"/>
+                                </StackLayout>
+                            </Frame>
+                                <StackLayout Margin="0,10,0,0">
+                                    <Label Text="Date of Birth"/>
+                                </StackLayout>
+                            <Frame BackgroundColor="Transparent" BorderColor="DarkGray" Padding="0" Margin="0,10,0,0" CornerRadius="10" HorizontalOptions="FillAndExpand">
+                                <StackLayout Orientation="Horizontal">
+                                    <Frame HeightRequest="25" BackgroundColor="AliceBlue" CornerRadius="50" WidthRequest="25" Padding="0" Margin="7"></Frame>
+                                    <!--<Entry 
+                                        Placeholder="Date of Birth" 
+                                        Text="{Binding DateOfBirth}" 
+                                        TextColor="Purple" 
+                                        HorizontalOptions="FillAndExpand" 
+                                        Margin="0,0,15,0"
+                                        BindingContext="{x:Binding }"/>-->
+                                        <!---->
+                                        <DatePicker Date="{Binding DateOfBirth}"
+                                                    MinimumDate="01-01-1960"
+                                                     HorizontalOptions="FillAndExpand" 
+                                        Margin="0,0,15,0"/>
+                                    </StackLayout>
+                            </Frame>
+                               
+                                <Frame BackgroundColor="Transparent" BorderColor="DarkGray" Padding="0" Margin="0,10,0,0" CornerRadius="10" HorizontalOptions="FillAndExpand">
+                                    <StackLayout Orientation="Horizontal">
+                                        <Frame HeightRequest="25" BackgroundColor="AliceBlue" CornerRadius="50" WidthRequest="25" Padding="0" Margin="7"></Frame>
+                                        <Entry 
+                                        Text="{Binding NationalID}" 
+                                        Placeholder="National ID"
+                                        TextColor="Purple" 
+                                        HorizontalOptions="FillAndExpand" 
+                                        Margin="0,0,15,0"/>
+                                    </StackLayout>
+                                </Frame>
+                                
+                                <Frame BackgroundColor="Transparent" BorderColor="DarkGray" Padding="0" Margin="0,10,0,0" CornerRadius="10" HorizontalOptions="FillAndExpand">
+                                    <StackLayout Orientation="Horizontal">
+                                        <Frame HeightRequest="25" BackgroundColor="AliceBlue" CornerRadius="50" WidthRequest="25" Padding="0" Margin="7"></Frame>
+                                        <Entry 
+                                        Text="{Binding PhoneNumber}" 
+                                        Placeholder="Phone Number"
+                                        TextColor="Purple" 
+                                        HorizontalOptions="FillAndExpand" 
+                                        Margin="0,0,15,0"/>
+                                    </StackLayout>
+                                </Frame>
+                               
+                               
+                               
+                        </StackLayout>
+                            <StackLayout VerticalOptions="Center" HorizontalOptions="Center">
+                                <AbsoluteLayout>
+                                    <ActivityIndicator IsRunning="{Binding IsBusy}" Color ="Red" 
+                                                       AbsoluteLayout.LayoutFlags="PositionProportional"
+                                                       />
+                                </AbsoluteLayout>
+                            </StackLayout>
+                               
+                           
+
+                            <Button 
+                                Text="Next" 
+                                Command="{Binding RegisterCommand}" 
+                                BackgroundColor="DarkBlue" 
+                                FontAttributes="Bold" 
+                                CornerRadius="5" 
+                                TextColor="White"/>
+                            <Label Text="{Binding Message}"/>
+
+                        </StackLayout>
+                </Frame>
+            </StackLayout>
+        </Grid>
+    </StackLayout>
+
+    <!--<ScrollView>
+        <StackLayout Orientation="Vertical">
+            <Entry Text="{Binding FullName}" Placeholder="Full Name"/>
+            <Entry Text="{Binding Email}" Placeholder="Email"/>
+            <Entry Text="{Binding Address}" Placeholder="Address"/>
+            <Entry Text="{Binding EmploymentDetails}" Placeholder="Employment Details"/>
+            <Entry Text="{Binding NationalID}" Placeholder="National ID"/>
+            <Entry Text="{Binding DateOfBirth}" Placeholder="Date Of Birth"/>
+            <Entry Text="{Binding Profession}" Placeholder="Profession"/>
+            <Entry Text="{Binding PhoneNumber}" Placeholder="Phone Number"/>
+            <Entry Text="{Binding Covertype}" Placeholder="Insurance Cover"/>
+            <Entry Text="{Binding Password}" Placeholder="Password" IsPassword="True"/>
+            <Entry Text="{Binding ConfirmPassword}" Placeholder="Confirm Password" IsPassword="True"/>
+            <Button Command="{Binding RegisterCommand}" Text="Register" />
+
+            <Label Text="{Binding Message}"/>
+            <Button Text="Go to Login Page" Clicked="Button_Clicked"/>
+
+        </StackLayout>
+    </ScrollView>-->
+
+    </ScrollView>
+</ContentPage>

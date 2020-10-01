@@ -1,0 +1,212 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             mc:Ignorable="d"
+             x:Class="HostCareInsurance.Views.HomePage"
+             >
+    <ContentPage.Resources>
+        <Color x:Key="themeColor">#3276fc</Color>
+        <Color x:Key="grayColor">#F3F5F9</Color>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        
+        <ScrollView>
+            <Grid BackgroundColor="#F3F5F9" RowSpacing="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="180"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+
+
+                <!--Header-->
+                
+
+                    <Grid BackgroundColor="White"  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                        <StackLayout Margin="0,-55,0,0" HorizontalOptions="Center" VerticalOptions="Center">
+                            <Image Source="HostcareLogo.png"/>
+                        </StackLayout>
+                    </Grid>
+
+               
+                <!--Body-->
+                <yummy:PancakeView BackgroundColor="White"  Grid.Row="1"  CornerRadius="10,10,0,0" Margin="20,-50,20,0" Padding="18"  VerticalOptions="FillAndExpand">
+                    <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="0">
+                        <StackLayout Orientation="Vertical" Spacing="6" Margin="0,0,0,0">
+                            <!--<StackLayout Orientation="Horizontal" Margin="20,10,20,0">
+                                <Label 
+                                    Text="WELCOME" 
+                                    Opacity="0.4" 
+                                    FontAttributes="Bold" 
+                                    FontSize="20" 
+                                    HorizontalOptions="Start" 
+                                    TextColor="DarkBlue"/>
+                            </StackLayout>-->
+
+                            <BoxView HeightRequest="1" BackgroundColor="#161f37" Opacity="0.1" Margin="5,0,5,0"></BoxView>
+
+                            <!--<Label
+                                HorizontalOptions="Center"
+                                HorizontalTextAlignment="Center"
+                                Text="HostCare Insurance Carters for Vehicle and Home Insurance Cover"/>-->
+
+                            <!--Insuarance activities-->
+                            <Grid Margin="0,20,0,20">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <!--Left top-->
+                                <Frame
+                                    Grid.Row="0"
+                                    Grid.Column="0"
+                                    BackgroundColor="LightBlue"
+                                    CornerRadius="5">
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="*"/>
+                                            <RowDefinition Height="Auto"/>
+                                        </Grid.RowDefinitions>
+                                        <Image Grid.Row="0" Source="car" WidthRequest="50"/>
+                                        <Label Grid.Row="1" Text="Get Vehicle Insurance Quotation" HorizontalOptions="Center"/>
+                                    </Grid>
+                                    <Frame.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding VehicleQuote}"/>
+                                    </Frame.GestureRecognizers>
+                                </Frame>
+
+                                <!--right top-->
+                                <Frame
+                                    Grid.Row="0"
+                                    Grid.Column="1"
+                                    BackgroundColor="LightBlue"
+                                    CornerRadius="5">
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="*"/>
+                                            <RowDefinition Height="Auto"/>
+                                        </Grid.RowDefinitions>
+                                        <Image Grid.Row="0" Source="home" WidthRequest="50"/>
+                                        <Label Grid.Row="1" Text="Get Home Insurance Quotation" HorizontalOptions="Center"/>
+                                    </Grid>
+                                    <Frame.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding HomeInsuranceQuote}"/>
+                                    </Frame.GestureRecognizers>
+                                </Frame>
+
+                                <!--Left bottom-->
+                                <Frame
+                                    Grid.Row="1"
+                                    Grid.Column="0"
+                                    BackgroundColor="LightBlue"
+                                    CornerRadius="5">
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="*"/>
+                                            <RowDefinition Height="Auto"/>
+                                        </Grid.RowDefinitions>
+                                        <Image Grid.Row="0" Source="user" WidthRequest="50"/>
+                                        <Label Grid.Row="1" Text="Profile" HorizontalOptions="Center" />
+                                    </Grid>
+                                    <Frame.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding Account}"/>
+                                    </Frame.GestureRecognizers>
+                                </Frame>
+
+                                <!--right bottom-->
+                                <Frame
+                                    Grid.Row="1"
+                                    Grid.Column="1"
+                                    BackgroundColor="LightBlue"
+                                    CornerRadius="5">
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="*"/>
+                                            <RowDefinition Height="Auto"/>
+                                        </Grid.RowDefinitions>
+                                        <Image Grid.Row="0" Source="history" WidthRequest="50"/>
+                                        <Label Grid.Row="1" Text="History" HorizontalOptions="Center"/>
+                                    </Grid>
+                                </Frame>
+                            </Grid>
+
+                            <Frame CornerRadius="10" BackgroundColor="{StaticResource grayColor}" Margin="0,0,0,10">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Label Grid.Row="0" Grid.Column="0" Text="Our Moto" FontAttributes="Bold" FontSize="18"/>
+
+                                    <StackLayout Grid.Row="1" Grid.ColumnSpan="2">
+                                        <Label  Text="We are the Best in the Business"/>
+                                        <Label  Text=""/>
+                                    </StackLayout>
+
+                                    <BoxView Grid.Row="2" Grid.ColumnSpan="2" HeightRequest="4" BackgroundColor="Lime"/>
+                                </Grid>
+                            </Frame>
+
+                            <!--Register or login-->
+                            <Grid VerticalOptions="EndAndExpand">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Button
+                                    Margin="0,0,0,0"
+                                    TextColor="White" 
+                                    IsEnabled="{Binding IsEnabled}"
+                                    Command="{Binding Account}"
+                                    CornerRadius="10"
+                                    BackgroundColor="DarkBlue"
+                                    Text="LOGIN"/>
+                                <Button
+                                    Grid.Column="1"
+                                    Margin="0,0,0,0"
+                                    TextColor="White" 
+                                    VerticalOptions="EndAndExpand"
+                                    IsEnabled="{Binding IsEnabled}"
+                                    Command="{Binding VehicleQuote}"
+                                    CornerRadius="10"
+                                    BackgroundColor="DarkBlue"
+                                    Text="Register"/>
+
+                                <Entry
+                                    Grid.Row="1"
+                                    Grid.ColumnSpan="2"
+                                    Margin="0,0,0,10"
+                                    VerticalOptions="Center"
+                                    TextColor="Black"
+                                    FontSize="18"
+                                    Placeholder="IP Address"
+                                    Text="{Binding IPAddress, Mode=TwoWay}"
+                                    FontAttributes="Bold"/>
+                            </Grid>
+                        </StackLayout>
+                    </Grid>
+                </yummy:PancakeView>
+
+
+            </Grid>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

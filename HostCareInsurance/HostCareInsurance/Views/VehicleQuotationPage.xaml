@@ -1,0 +1,213 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:viewModels="clr-namespace:HostCareInsurance.Models.ViewModels"
+             mc:Ignorable="d"
+             x:Class="HostCareInsurance.Views.VehicleQuotationPage">
+    <ContentPage.BindingContext>
+        <viewModels:VehicleQuotationViewModel/>
+    </ContentPage.BindingContext>
+    <ScrollView>
+        <StackLayout Padding="0">
+            <Grid>
+                <StackLayout Padding="0" Margin="0">
+                    <Frame   HeightRequest="130" HorizontalOptions="FillAndExpand">
+                        
+                            <StackLayout Margin="0,-40,0,0" HorizontalOptions="Center" VerticalOptions="Center">
+                                <Image Source="HostcareLogo.png"/>
+                            </StackLayout>
+
+                    </Frame>
+                </StackLayout>
+                <StackLayout Margin="10,110,10,0">
+                    <Frame BackgroundColor="White" HasShadow="True" BorderColor="FloralWhite" HeightRequest="1000" HorizontalOptions="FillAndExpand">
+                        <StackLayout>
+                            <StackLayout HorizontalOptions="CenterAndExpand">
+                                <Label Text="Provide your Vehicle details" TextColor="DarkBlue" FontAttributes="Bold"/>
+                            </StackLayout>
+                            <StackLayout Margin="0,25,0,0">
+                                <Frame BackgroundColor="Transparent" BorderColor="DarkGray" Padding="0" Margin="0" CornerRadius="10" HorizontalOptions="FillAndExpand">
+                                    <StackLayout Orientation="Horizontal">
+                                        <Frame HeightRequest="25" BackgroundColor="AliceBlue" CornerRadius="50" WidthRequest="25" Padding="0" Margin="7"></Frame>
+                                        <Entry 
+                                        Placeholder="Colour" 
+                                        Text="{Binding Color,Mode=TwoWay}" 
+                                        TextColor="Purple" 
+                                        HorizontalOptions="FillAndExpand" 
+                                        Margin="0,0,15,0"/>
+                                    </StackLayout>
+                                </Frame>
+                                <Frame BackgroundColor="Transparent" BorderColor="DarkGray" Padding="0" Margin="0,10,0,0" CornerRadius="10" HorizontalOptions="FillAndExpand">
+                                    <StackLayout Orientation="Horizontal">
+                                        <Frame HeightRequest="25" BackgroundColor="AliceBlue" CornerRadius="50" WidthRequest="25" Padding="0" Margin="7"></Frame>
+                                        <!--<Entry 
+                                        Placeholder="Vehicle Make" 
+                                        Text="{Binding Make}" 
+                                        TextColor="Purple" 
+                                        HorizontalOptions="FillAndExpand" 
+                                        Margin="0,0,15,0"/>-->
+                                        <Picker Title="Vehicle Make" 
+                                           
+                                                TitleColor="Blue"
+                                                ItemsSource="{Binding ListVehicleMakes}"
+                                                ItemDisplayBinding="{Binding Name}"
+                                                 SelectedItem="{Binding Vehiclemake}"
+                                                HorizontalOptions="FillAndExpand"
+                                                Margin="0,0,15,0"/>
+                                        <Entry Text="{Binding Make}"
+                                               IsEnabled="False"/>
+                                    </StackLayout>
+                                </Frame>
+                                <Frame BackgroundColor="Transparent" BorderColor="DarkGray" Padding="0" Margin="0,10,0,0" CornerRadius="10" HorizontalOptions="FillAndExpand">
+                                    <StackLayout Orientation="Horizontal">
+                                        <Frame HeightRequest="25" BackgroundColor="AliceBlue" CornerRadius="50" WidthRequest="25" Padding="0" Margin="7"></Frame>
+                                        <Entry 
+                                        Placeholder="Vehicle Model" 
+                                        Text="{Binding Model, Mode=TwoWay}" 
+                                        TextColor="Purple" 
+                                        HorizontalOptions="FillAndExpand" 
+                                        Margin="0,0,15,0"/>
+                                    </StackLayout>
+                                </Frame>
+                                <Frame BackgroundColor="Transparent" BorderColor="DarkGray" Padding="0" Margin="0,10,0,0" CornerRadius="10" HorizontalOptions="FillAndExpand">
+                                    <StackLayout Orientation="Horizontal">
+                                        <Frame HeightRequest="25" BackgroundColor="AliceBlue" CornerRadius="50" WidthRequest="25" Padding="0" Margin="7"></Frame>
+                                        <Entry 
+                                        Placeholder="Park Address" 
+                                        Text="{Binding ParkAddress,Mode=TwoWay}" 
+                                        TextColor="Purple" 
+                                        HorizontalOptions="FillAndExpand" 
+                                        Margin="0,0,15,0"/>
+                                    </StackLayout>
+                                </Frame>
+                                <Frame BackgroundColor="Transparent" BorderColor="DarkGray" Padding="0" Margin="0,10,0,0" CornerRadius="10" HorizontalOptions="FillAndExpand">
+                                    <StackLayout Orientation="Horizontal">
+                                        <Frame HeightRequest="25" BackgroundColor="AliceBlue" CornerRadius="50" WidthRequest="25" Padding="0" Margin="7"></Frame>
+                                        <Entry 
+                                        Placeholder="Mileage" 
+                                        Text="{Binding Mileage,Mode=TwoWay}" 
+                                        TextColor="Purple" 
+                                        HorizontalOptions="FillAndExpand" 
+                                        Margin="0,0,15,0"/>
+                                    </StackLayout>
+                                </Frame>
+                                <Frame BackgroundColor="Transparent" BorderColor="DarkGray" Padding="0" Margin="0,10,0,0" CornerRadius="10" HorizontalOptions="FillAndExpand">
+                                    <StackLayout Orientation="Horizontal">
+                                        <Frame HeightRequest="25" BackgroundColor="AliceBlue" CornerRadius="50" WidthRequest="25" Padding="0" Margin="7"></Frame>
+                                        <Entry 
+                                        Text="{Binding CarValue,Mode=TwoWay}" 
+                                        Placeholder="Vehicle Value 0.00" 
+                                        TextColor="Purple" 
+                                        HorizontalOptions="FillAndExpand" 
+                                        Margin="0,0,15,0"/>
+                                    </StackLayout>
+                                </Frame>
+                                <Frame BackgroundColor="Transparent" BorderColor="DarkGray" Padding="0" Margin="0,10,0,0" CornerRadius="10" HorizontalOptions="FillAndExpand">
+                                    <StackLayout Orientation="Horizontal">
+                                        <Frame HeightRequest="25" BackgroundColor="AliceBlue" CornerRadius="50" WidthRequest="25" Padding="0" Margin="7"></Frame>
+                                        <Entry 
+                                        Text="{Binding Year,Mode=TwoWay}" 
+                                        Placeholder="Year" 
+                                        TextColor="Purple" 
+                                        HorizontalOptions="FillAndExpand" 
+                                        Margin="0,0,15,0"/>
+                                    </StackLayout>
+                                </Frame>
+                                <Frame BackgroundColor="Transparent" BorderColor="DarkGray" Padding="0" Margin="0,10,0,0" CornerRadius="10" HorizontalOptions="FillAndExpand">
+                                    <StackLayout Orientation="Horizontal">
+                                        <Frame HeightRequest="25" BackgroundColor="AliceBlue" CornerRadius="50" WidthRequest="25" Padding="0" Margin="7"></Frame>
+                                        <!--<Entry 
+                                        Text="{Binding Premium}" 
+                                        Placeholder="0-AnnualPremium,1-TermlyPremium,2-MonthlyPremium,"
+                                        TextColor="Purple" 
+                                        HorizontalOptions="FillAndExpand" 
+                                        Margin="0,0,15,0"/>-->
+                                        <Picker Title="Premium Plan" 
+                                            
+                                                TitleColor="Blue"
+                                                ItemsSource="{Binding ListInsurancePremium}"
+                                                ItemDisplayBinding="{Binding Name}"
+                                                SelectedItem="{Binding Premia}"
+                                                HorizontalOptions="FillAndExpand"
+                                                Margin="0,0,15,0"/>
+                                        <Entry Text="{Binding Premium}"
+                                               IsEnabled="False"/>
+                                    </StackLayout>
+                                </Frame>
+                                <Frame BackgroundColor="Transparent" BorderColor="DarkGray" Padding="0" Margin="0,10,0,0" CornerRadius="10" HorizontalOptions="FillAndExpand">
+                                    <StackLayout Orientation="Horizontal">
+                                        <Frame HeightRequest="25" BackgroundColor="AliceBlue" CornerRadius="50" WidthRequest="25" Padding="0" Margin="7"></Frame>
+                                        <Entry 
+                                        Text="{Binding VehicleUse}" 
+                                        Placeholder="Vehicle Use"
+                                        TextColor="Purple" 
+                                        HorizontalOptions="FillAndExpand" 
+                                        Margin="0,0,15,0"/>
+                                    </StackLayout>
+                                </Frame>
+                                
+                                <Frame BackgroundColor="Transparent" BorderColor="DarkGray" Padding="0" Margin="0,10,0,0" CornerRadius="10" HorizontalOptions="FillAndExpand">
+                                    <StackLayout Orientation="Horizontal">
+                                        <Frame HeightRequest="25" BackgroundColor="AliceBlue" CornerRadius="50" WidthRequest="25" Padding="0" Margin="7"></Frame>
+                                        <Entry 
+                                        Text="{Binding RegistrationNumber}" 
+                                        Placeholder="Registration Number"
+                                        TextColor="Purple" 
+                                        HorizontalOptions="FillAndExpand" 
+                                        Margin="0,0,15,0"/>
+                                    </StackLayout>
+                                </Frame>
+
+
+
+
+                              
+
+
+
+                            </StackLayout>
+                            <!--<StackLayout VerticalOptions="Center" HorizontalOptions="Center">
+                                <StackLayout>
+                                    <Image x:Name="image" WidthRequest="100" VerticalOptions="Center"/>
+                                    <Button Text="Pick Photo" Clicked="Button_Clicked"/>
+                                    
+                                </StackLayout>
+                            </StackLayout>-->
+
+                            <StackLayout VerticalOptions="Center" HorizontalOptions="Center">
+                                <AbsoluteLayout>
+                                    <ActivityIndicator IsRunning="{Binding IsBusy}" Color ="Red" 
+                                                      />
+                                </AbsoluteLayout>
+                            </StackLayout>
+                            <StackLayout Padding="10" Spacing="10">
+                                <Label Text="Take at least 4 photos of your Vehicle"/>
+                                <Button x:Name="takePhoto" Text="Take Photo" Clicked="takePhoto_Clicked" />
+                                <Image x:Name="image"/>
+                                <Label Text="Save to Gallery"/>
+                                <Switch x:Name="saveToGallery" IsToggled="false" HorizontalOptions="Center"/>
+                            </StackLayout>
+                            <Button 
+                                CornerRadius="5"
+                                Text="Generate Quote" 
+                                Command="{Binding QuatationCommand}" 
+                                BackgroundColor="DarkBlue" 
+                                FontAttributes="Bold" 
+                                
+                                TextColor="White"/>
+                            
+                            
+
+                        </StackLayout>
+                        
+                    </Frame>
+                </StackLayout>
+            </Grid>
+        </StackLayout>
+
+
+
+    </ScrollView>
+</ContentPage>

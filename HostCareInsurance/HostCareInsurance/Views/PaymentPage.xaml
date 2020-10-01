@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             mc:Ignorable="d"
+             x:Class="HostCareInsurance.Views.PaymentPage">
+    <ContentPage.Resources>
+        <Color x:Key="themeColor">#3276fc</Color>
+        <Color x:Key="grayColor">#F3F5F9</Color>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <ScrollView>
+            <Grid BackgroundColor="#F3F5F9" RowSpacing="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="180"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+
+
+                <!--Header-->
+                <Grid BackgroundColor="DarkBlue" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+
+                    <StackLayout Margin="0,-40,0,0" HorizontalOptions="Center" VerticalOptions="Center">
+                        <Label TextColor="White" FontSize="40" HorizontalTextAlignment="Center">
+                            <Label.FormattedText>
+                                <FormattedString>
+                                    <FormattedString.Spans>
+                                        <Span Text="Host" FontSize="40" FontAttributes="Bold"/>
+                                        <Span Text="Care"/>
+                                    </FormattedString.Spans>
+                                </FormattedString>
+                            </Label.FormattedText>
+                        </Label>
+                        <Label Text="Make Payment" TextColor="White" FontSize="15" HorizontalTextAlignment="Center" Margin="0,-10,0,0"/>
+                    </StackLayout>
+                </Grid>
+
+                <!--Body-->
+                <yummy:PancakeView BackgroundColor="White" BorderColor="FloralWhite"  Grid.Row="1"  CornerRadius="10,10,0,0" Margin="20,-50,20,0" Padding="18"  VerticalOptions="FillAndExpand">
+                    <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Margin="0">
+                        <Image Source="background" Aspect="AspectFill" Opacity="0.4"></Image>
+                        <StackLayout Orientation="Vertical" Spacing="6" Margin="0,0,0,30">
+                            <StackLayout Orientation="Horizontal" Margin="20,10,20,0">
+                                <Label Text="Make Payment"
+                                       Opacity="0.4"
+                                       FontAttributes="Bold"
+                                       FontSize="20" 
+                                       HorizontalOptions="CenterAndExpand" 
+                                       TextColor="{StaticResource themeColor}"/>
+
+                            </StackLayout>
+
+                            <BoxView HeightRequest="1" BackgroundColor="#161f37" Opacity="0.1" Margin="5,0,5,0"></BoxView>
+
+                            <!--Indicator-->
+                            <ActivityIndicator Color="#F58220" IsRunning="{Binding IsBusy}" HorizontalOptions="Center" Margin="0"/>
+                            
+                            <Entry
+                                 IsReadOnly="True"
+                                 Margin="10,0,10,10"
+                                 VerticalOptions="Center"
+                                 FontSize="18"
+                                 TextColor="Purple"
+                                 Placeholder="Amount"
+                                 Text="{Binding Amount, Mode=TwoWay}"
+                                
+                                 FontAttributes="Bold" 
+                                 CharacterSpacing="1"/>
+
+                            <Entry
+                                 Margin="10,0,10,10"
+                                 VerticalOptions="Center"
+                                 FontSize="18"
+                                 TextColor="Black"
+                                 Placeholder="Cover"
+                                 Text="{Binding Cover, Mode=TwoWay}"
+                                 FontAttributes="Bold" 
+                                 CharacterSpacing="1"/>
+
+                            <CarouselView ItemsSource="{Binding Data}" HeightRequest="400">
+                                <CarouselView.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackLayout BackgroundColor="Teal">
+                                            <Label Text="{Binding Number}"/>
+                                            <Image Source="{Binding ImageUrl}" HeightRequest="300" WidthRequest="200"/>
+                                        </StackLayout>
+                                    </DataTemplate>
+                                </CarouselView.ItemTemplate>
+                            </CarouselView>
+
+                            <Button
+                                Margin="10,0,10,0"
+                                VerticalOptions="EndAndExpand"
+                                IsEnabled="{Binding IsEnabled}"
+                                Command="{Binding PaymentCommmand}"
+                                CornerRadius="10"
+                                TextColor="White"
+                                FontAttributes="Bold"
+                                BackgroundColor="{StaticResource themeColor}"
+                                Text="SUBMIT"/>
+
+
+
+                        </StackLayout>
+                    </Grid>
+                </yummy:PancakeView>
+
+
+            </Grid>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

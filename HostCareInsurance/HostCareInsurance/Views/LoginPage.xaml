@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:viewModels="clr-namespace:MobileApp.Models.ViewModels"
+             mc:Ignorable="d"
+             x:Class="MobileApp.Views.LoginPage">
+    <!--<ContentPage.BindingContext>
+        <viewModels:LoginViewModel/>
+    </ContentPage.BindingContext>-->
+    <StackLayout Padding="0">
+        <Grid>
+            <StackLayout Padding="0" Margin="0">
+                
+                    <StackLayout Margin="0,-40,0,0" HorizontalOptions="Center" VerticalOptions="Center">
+                        <Image Source="HostcareLogo.png"/>
+                    </StackLayout>
+                    <!--<Frame BackgroundColor="DarkBlue"  HeightRequest="130" HorizontalOptions="FillAndExpand">
+                    <StackLayout HorizontalOptions="CenterAndExpand">
+                        <Label Text="HostCare Insurance" TextColor="White" FontAttributes="Bold" FontSize="Large"/>
+                    </StackLayout>
+                   
+                </Frame>-->
+            </StackLayout>
+            <StackLayout Margin="10,110,10,0" >
+                <Frame BackgroundColor="GhostWhite" BorderColor="FloralWhite" HasShadow="True" HeightRequest="300" HorizontalOptions="FillAndExpand" CornerRadius="10">
+                    <StackLayout>
+                    <StackLayout HorizontalOptions="CenterAndExpand">
+                        <Label Text="LOGIN" TextColor="DarkBlue" FontAttributes="Bold" FontFamily="Impact"/>
+                    </StackLayout>
+                    <StackLayout Margin="0,25,0,0">
+                        <Frame BackgroundColor="Transparent" BorderColor="DarkGray" Padding="0" Margin="0" CornerRadius="10" HorizontalOptions="FillAndExpand">
+                                <StackLayout Orientation="Horizontal">
+                                    <Frame HeightRequest="25" BackgroundColor="AliceBlue" CornerRadius="50" WidthRequest="25" Padding="0" Margin="7"></Frame>
+                                    <Entry 
+                                        Placeholder="Email" 
+                                        Text="{Binding Email}" 
+                                        TextColor="Purple" 
+                                        HorizontalOptions="FillAndExpand" 
+                                        Margin="0,0,15,0"/>
+                                </StackLayout>
+                        </Frame>
+                            <Frame BackgroundColor="Transparent" BorderColor="DarkGray" Padding="0" Margin="0,10,0,0" CornerRadius="10" HorizontalOptions="FillAndExpand">
+                                <StackLayout Orientation="Horizontal">
+                                    <Frame HeightRequest="25" BackgroundColor="AliceBlue" CornerRadius="50" WidthRequest="25" Padding="0" Margin="7"></Frame>
+                                    <Entry 
+                                        Placeholder="Password" 
+                                        IsPassword="True" 
+                                        Text="{Binding Password}" 
+                                        TextColor="Purple"  
+                                        HorizontalOptions="FillAndExpand" 
+                                        Margin="0,0,15,0"/>
+                                </StackLayout>
+                            </Frame>
+                        </StackLayout>
+                        <StackLayout Orientation="Horizontal" >
+                            <CheckBox IsChecked="False" Color="DarkBlue"/>
+                            <Label Text="Remember Me" HorizontalTextAlignment="Start" VerticalTextAlignment="Center"/>
+                            <Label 
+                                Text="Forgot Password?" 
+                                HorizontalTextAlignment="End" 
+                                TextColor="DarkBlue" 
+                                HorizontalOptions="EndAndExpand" 
+                                VerticalTextAlignment="Center"/>
+                           
+                        </StackLayout>
+                        
+                        <Button 
+                                Text="LOGIN" 
+                            
+                                Command="{Binding LoginCommand}" 
+                                BackgroundColor="DarkBlue" 
+                                FontAttributes="Bold" 
+                                CornerRadius="5" 
+                                TextColor="White"/>
+
+                        <StackLayout VerticalOptions="Center" HorizontalOptions="Center">
+                            <AbsoluteLayout>
+                                <ActivityIndicator IsRunning="{Binding IsBusy}" Color ="Red"/>
+                            </AbsoluteLayout>
+                        </StackLayout>
+                           
+                        
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
+        </Grid>
+    </StackLayout>
+        <!--<StackLayout Orientation="Vertical">
+        <Entry Text="{Binding Email}"/>
+        <Entry Text="{Binding Password}" IsPassword="True"/>
+        <Button Command="{Binding LoginCommand}" Text="Login"/>
+        <Label Text="{Binding Message}"/>
+    </StackLayout>-->
+    
+</ContentPage>
