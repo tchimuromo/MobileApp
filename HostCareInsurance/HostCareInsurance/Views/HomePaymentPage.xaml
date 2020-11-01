@@ -1,11 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
-             mc:Ignorable="d"
-             x:Class="HostCareInsurance.Views.PaymentPage"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+             x:Class="HostCareInsurance.Views.HomePaymentPage"
              NavigationPage.HasNavigationBar="False">
     <ContentPage.Resources>
         <Color x:Key="themeColor">#0279c9</Color>
@@ -35,7 +31,7 @@
                                 </FormattedString>
                             </Label.FormattedText>
                         </Label>
-                        <!--<Label Text="Make Payment" TextColor="White" FontSize="15" HorizontalTextAlignment="Center" Margin="0,-10,0,0"/>-->
+                        <Label Text="Make Payment" TextColor="White" FontSize="15" HorizontalTextAlignment="Center" Margin="0,-10,0,0"/>
                     </StackLayout>
                 </Grid>
 
@@ -45,7 +41,7 @@
                         <Image Source="background" Aspect="AspectFill" Opacity="0.4"></Image>
                         <StackLayout Orientation="Vertical" Spacing="6" Margin="0,0,0,30">
                             <StackLayout Orientation="Horizontal" Margin="20,10,20,0">
-                                <Label Text="Qoutation"
+                                <Label Text="Make Payment"
                                        Opacity="0.4"
                                        FontAttributes="Bold"
                                        FontSize="20" 
@@ -57,14 +53,14 @@
                             <BoxView HeightRequest="1" BackgroundColor="#161f37" Opacity="0.1" Margin="5,0,5,0"></BoxView>
 
                             <!--Indicator-->
-                            <!--<ActivityIndicator Color="#F58220" IsRunning="{Binding IsBusy}" HorizontalOptions="Center" Margin="0"/>-->
-                            
+                            <ActivityIndicator Color="#F58220" IsRunning="{Binding IsBusy}" HorizontalOptions="Center" Margin="0"/>
+
                             <Entry
                                  IsReadOnly="True"
                                  Margin="10,0,10,10"
                                  VerticalOptions="Center"
                                  FontSize="18"
-                                 TextColor="Black"
+                                 TextColor="Purple"
                                  Placeholder="Amount"
                                  Text="{Binding Amount, Mode=TwoWay}"
                                 
@@ -81,18 +77,16 @@
                                  FontAttributes="Bold" 
                                  CharacterSpacing="1"/>
 
-
-                            <StackLayout>
-                                <Label  Text="This Sum is for the First Month Installment only if you have Selected Monthly Premium" TextColor="Black"/>
-                                <Label  Text=""/>
-                            </StackLayout>
-
-                            <StackLayout VerticalOptions="Center" HorizontalOptions="Center">
-                                <AbsoluteLayout>
-                                    <ActivityIndicator IsRunning="{Binding IsBusy}" Color ="Red" 
-                                                      />
-                                </AbsoluteLayout>
-                            </StackLayout>
+                            <CarouselView ItemsSource="{Binding Data}" HeightRequest="400">
+                                <CarouselView.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackLayout BackgroundColor="#0279c9">
+                                            <Label Text="{Binding Number}"/>
+                                            <Image Source="{Binding ImageUrl}" HeightRequest="300" WidthRequest="200"/>
+                                        </StackLayout>
+                                    </DataTemplate>
+                                </CarouselView.ItemTemplate>
+                            </CarouselView>
 
                             <Button
                                 Margin="10,0,10,0"
@@ -102,7 +96,7 @@
                                 CornerRadius="10"
                                 TextColor="White"
                                 FontAttributes="Bold"
-                                BackgroundColor="{StaticResource themeColor}"
+                                
                                 Text="SUBMIT"/>
 
 

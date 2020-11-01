@@ -4,7 +4,7 @@ using System.Text;
 
 namespace HostCareInsurance.Models
 {
-    public class VehicleMake
+    public class VehicleUse
     {
         public int Key { get; set; }
         public string Name { get; set; }

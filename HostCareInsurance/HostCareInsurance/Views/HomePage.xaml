@@ -6,9 +6,9 @@
              xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
              mc:Ignorable="d"
              x:Class="HostCareInsurance.Views.HomePage"
-             >
+             NavigationPage.HasNavigationBar="False">
     <ContentPage.Resources>
-        <Color x:Key="themeColor">#3276fc</Color>
+        <Color x:Key="themeColor">#0279c9</Color>
         <Color x:Key="grayColor">#F3F5F9</Color>
     </ContentPage.Resources>
     <ContentPage.Content>
@@ -68,7 +68,7 @@
                                 <Frame
                                     Grid.Row="0"
                                     Grid.Column="0"
-                                    BackgroundColor="LightBlue"
+                                    BackgroundColor="	#0279c9"
                                     CornerRadius="5">
                                     <Grid>
                                         <Grid.RowDefinitions>
@@ -76,7 +76,7 @@
                                             <RowDefinition Height="Auto"/>
                                         </Grid.RowDefinitions>
                                         <Image Grid.Row="0" Source="car" WidthRequest="50"/>
-                                        <Label Grid.Row="1" Text="Get Vehicle Insurance Quotation" HorizontalOptions="Center"/>
+                                        <Label Grid.Row="1" Text="Get Vehicle Insurance Quotation" HorizontalOptions="Center" TextColor="White"/>
                                     </Grid>
                                     <Frame.GestureRecognizers>
                                         <TapGestureRecognizer Command="{Binding VehicleQuote}"/>
@@ -87,7 +87,7 @@
                                 <Frame
                                     Grid.Row="0"
                                     Grid.Column="1"
-                                    BackgroundColor="LightBlue"
+                                    BackgroundColor="	#0279c9"
                                     CornerRadius="5">
                                     <Grid>
                                         <Grid.RowDefinitions>
@@ -95,7 +95,7 @@
                                             <RowDefinition Height="Auto"/>
                                         </Grid.RowDefinitions>
                                         <Image Grid.Row="0" Source="home" WidthRequest="50"/>
-                                        <Label Grid.Row="1" Text="Get Home Insurance Quotation" HorizontalOptions="Center"/>
+                                        <Label Grid.Row="1" Text="Get Home Insurance Quotation" HorizontalOptions="Center" TextColor="White"/>
                                     </Grid>
                                     <Frame.GestureRecognizers>
                                         <TapGestureRecognizer Command="{Binding HomeInsuranceQuote}"/>
@@ -106,7 +106,7 @@
                                 <Frame
                                     Grid.Row="1"
                                     Grid.Column="0"
-                                    BackgroundColor="LightBlue"
+                                    BackgroundColor="	#0279c9"
                                     CornerRadius="5">
                                     <Grid>
                                         <Grid.RowDefinitions>
@@ -114,7 +114,7 @@
                                             <RowDefinition Height="Auto"/>
                                         </Grid.RowDefinitions>
                                         <Image Grid.Row="0" Source="user" WidthRequest="50"/>
-                                        <Label Grid.Row="1" Text="Profile" HorizontalOptions="Center" />
+                                        <Label Grid.Row="1" Text="Profile" HorizontalOptions="Center" TextColor="White"/>
                                     </Grid>
                                     <Frame.GestureRecognizers>
                                         <TapGestureRecognizer Command="{Binding Account}"/>
@@ -125,7 +125,7 @@
                                 <Frame
                                     Grid.Row="1"
                                     Grid.Column="1"
-                                    BackgroundColor="LightBlue"
+                                    BackgroundColor="	#0279c9"
                                     CornerRadius="5">
                                     <Grid>
                                         <Grid.RowDefinitions>
@@ -133,12 +133,12 @@
                                             <RowDefinition Height="Auto"/>
                                         </Grid.RowDefinitions>
                                         <Image Grid.Row="0" Source="history" WidthRequest="50"/>
-                                        <Label Grid.Row="1" Text="History" HorizontalOptions="Center"/>
+                                        <Label Grid.Row="1" Text="History" HorizontalOptions="Center" TextColor="White"/>
                                     </Grid>
                                 </Frame>
                             </Grid>
 
-                            <Frame CornerRadius="10" BackgroundColor="{StaticResource grayColor}" Margin="0,0,0,10">
+                            <Frame CornerRadius="10" BackgroundColor="	#0279c9" Margin="0,0,0,10">
                                 <Grid>
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height="Auto"/>
@@ -150,14 +150,14 @@
                                         <ColumnDefinition Width="Auto"/>
                                     </Grid.ColumnDefinitions>
 
-                                    <Label Grid.Row="0" Grid.Column="0" Text="Our Moto" FontAttributes="Bold" FontSize="18"/>
+                                    <Label Grid.Row="0" Grid.Column="0" Text="Mission Statement" FontAttributes="Bold" FontSize="18" TextColor="Orange"/>
 
                                     <StackLayout Grid.Row="1" Grid.ColumnSpan="2">
-                                        <Label  Text="We are the Best in the Business"/>
+                                        <Label  Text="Quality Modern Innovative and Convinient Insurance Broking Solutions" TextColor="White"/>
                                         <Label  Text=""/>
                                     </StackLayout>
 
-                                    <BoxView Grid.Row="2" Grid.ColumnSpan="2" HeightRequest="4" BackgroundColor="Lime"/>
+                                    <BoxView Grid.Row="2" Grid.ColumnSpan="2" HeightRequest="4" BackgroundColor="Orange"/>
                                 </Grid>
                             </Frame>
 
@@ -171,7 +171,7 @@
                                     <ColumnDefinition Width="*"/>
                                     <ColumnDefinition Width="*"/>
                                 </Grid.ColumnDefinitions>
-                                <Button
+                                <!--<Button
                                     Margin="0,0,0,0"
                                     TextColor="White" 
                                     IsEnabled="{Binding IsEnabled}"
@@ -199,7 +199,7 @@
                                     FontSize="18"
                                     Placeholder="IP Address"
                                     Text="{Binding IPAddress, Mode=TwoWay}"
-                                    FontAttributes="Bold"/>
+                                    FontAttributes="Bold"/>-->
                             </Grid>
                         </StackLayout>
                     </Grid>

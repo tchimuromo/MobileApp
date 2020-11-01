@@ -1,5 +1,6 @@
 ﻿using HostCareInsurance.Models;
 using HostCareInsurance.Models.ViewModels;
+using HostCareInsurance.Validations;
 using HostCareInsurance.Views;
 using HostcareInsuranceBrokers.Models;
 using MobileApp.Models;
@@ -8,6 +9,7 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Net.Http;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
@@ -57,6 +59,15 @@ namespace MobileApp.ViewModels
             set { isBusy = value; OnPropertyChanged(); }
         }
 
+
+        //Validation
+        public ValidatableObject<string> FirstName { get; set; } = new ValidatableObject<string>();
+        public ValidatableObject<string> LastName { get; set; } = new ValidatableObject<string>();
+        public ValidatableObject<DateTime> BirthDay { get; set; } = new ValidatableObject<DateTime>() { Value = DateTime.Now };
+        //public ValidatableObject<string> PhoneNumber { get; set; } = new ValidatableObject<string>();
+       
+        public ValidatableObject<bool> TermsAndCondition { get; set; } = new ValidatableObject<bool>();
+
         //public string Message { get; set; }
         public ICommand RegisterCommand { get; set; }
         public RegisterViewModel()
@@ -75,7 +86,7 @@ namespace MobileApp.ViewModels
                 NationalID = NationalID,
                 DateOfBirth = DateOfBirth,
                 Address = Address,
-                Covertype = "VehicleCover",
+               // Covertype = "VehicleCover",
                 Email = Email,
                
                 FullName = FullName,
@@ -89,7 +100,7 @@ namespace MobileApp.ViewModels
             var json = JsonConvert.SerializeObject(model);
             var response = await Task.Run(()=>HttpServices.Post("Account/Register", json, ""));
             var result = JsonConvert.DeserializeObject<RegisterSuccess>(response);
-            if (result.status == "Success")
+            if (result.Status == "Success")
             {
                 HostCareInsurance.Configs.Config.Username = Email;
                 if(HostCareInsurance.Configs.Config.CoverType== HostcareInsuranceBrokers.Models.Covertype.VehicleInsurance)
@@ -102,6 +113,14 @@ namespace MobileApp.ViewModels
                 }
                
                 IsBusy = false;
+            }
+            if (result.Status == "Conflict")
+            {
+                IsBusy = false;
+                await Application.Current.MainPage.DisplayAlert("Conflict", "User Already Exists.", "Ok");
+              
+                await Application.Current.MainPage.Navigation.PushAsync(new RegisterPage(new RegisterViewModel()));
+                
             }
             //return result;
             IsBusy = false;

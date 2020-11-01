@@ -4,7 +4,8 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="HostCareInsurance.Views.HomeQuotationPage">
+             x:Class="HostCareInsurance.Views.HomeQuotationPage"
+             NavigationPage.HasNavigationBar="False">
     <ScrollView>
         <StackLayout Padding="0">
             <Grid>
@@ -21,39 +22,30 @@
                     <Frame BackgroundColor="White" HasShadow="True" BorderColor="FloralWhite" HeightRequest="850" HorizontalOptions="FillAndExpand">
                         <StackLayout>
                             <StackLayout HorizontalOptions="CenterAndExpand">
-                                <Label Text="Provide your House details" TextColor="DarkBlue" FontAttributes="Bold"/>
+                                <Label Text="Provide your Property details" TextColor="#0279c9" FontAttributes="Bold"/>
                             </StackLayout>
                             <StackLayout Margin="0,25,0,0">
                                 <Frame BackgroundColor="Transparent" BorderColor="DarkGray" Padding="0" Margin="0" CornerRadius="10" HorizontalOptions="FillAndExpand">
                                     <StackLayout Orientation="Horizontal">
                                         <Frame HeightRequest="25" BackgroundColor="AliceBlue" CornerRadius="50" WidthRequest="25" Padding="0" Margin="7"></Frame>
                                         <Entry 
-                                        Placeholder="Colour" 
-                                        Text="{Binding Color,Mode=TwoWay}" 
-                                        TextColor="Purple" 
+                                        Placeholder="Property Address" 
+                                        Text="{Binding Address,Mode=TwoWay}" 
+                                        TextColor="Black" 
                                         HorizontalOptions="FillAndExpand" 
                                         Margin="0,0,15,0"/>
                                     </StackLayout>
                                 </Frame>
-                               
+                                <StackLayout Margin="0,10,0,0">
+                                    <Label Text="Value of Property(USD)"/>
+                                </StackLayout>
                                 <Frame BackgroundColor="Transparent" BorderColor="DarkGray" Padding="0" Margin="0,10,0,0" CornerRadius="10" HorizontalOptions="FillAndExpand">
                                     <StackLayout Orientation="Horizontal">
                                         <Frame HeightRequest="25" BackgroundColor="AliceBlue" CornerRadius="50" WidthRequest="25" Padding="0" Margin="7"></Frame>
                                         <Entry 
-                                        Placeholder="Vehicle Model" 
-                                        Text="{Binding Model, Mode=TwoWay}" 
-                                        TextColor="Purple" 
-                                        HorizontalOptions="FillAndExpand" 
-                                        Margin="0,0,15,0"/>
-                                    </StackLayout>
-                                </Frame>
-                                <Frame BackgroundColor="Transparent" BorderColor="DarkGray" Padding="0" Margin="0,10,0,0" CornerRadius="10" HorizontalOptions="FillAndExpand">
-                                    <StackLayout Orientation="Horizontal">
-                                        <Frame HeightRequest="25" BackgroundColor="AliceBlue" CornerRadius="50" WidthRequest="25" Padding="0" Margin="7"></Frame>
-                                        <Entry 
-                                        Placeholder="Park Address" 
-                                        Text="{Binding ParkAddress,Mode=TwoWay}" 
-                                        TextColor="Purple" 
+                                        Placeholder="Property Value 0.00" 
+                                        Text="{Binding PropertyValue, Mode=TwoWay}" 
+                                        TextColor="Black" 
                                         HorizontalOptions="FillAndExpand" 
                                         Margin="0,0,15,0"/>
                                     </StackLayout>
@@ -61,15 +53,41 @@
                                 <Frame BackgroundColor="Transparent" BorderColor="DarkGray" Padding="0" Margin="0,10,0,0" CornerRadius="10" HorizontalOptions="FillAndExpand">
                                     <StackLayout Orientation="Horizontal">
                                         <Frame HeightRequest="25" BackgroundColor="AliceBlue" CornerRadius="50" WidthRequest="25" Padding="0" Margin="7"></Frame>
-                                        <Entry 
-                                        Placeholder="Mileage" 
-                                        Text="{Binding Mileage,Mode=TwoWay}" 
-                                        TextColor="Purple" 
-                                        HorizontalOptions="FillAndExpand" 
-                                        Margin="0,0,15,0"/>
+                                        <Picker Title="Type Of Construction" 
+                                            
+                                                TitleColor="#0279c9"
+                                                ItemsSource="{Binding ListConstructionTypes}"
+                                                ItemDisplayBinding="{Binding Name}"
+                                                SelectedItem="{Binding Construction}"
+                                                HorizontalOptions="FillAndExpand"
+                                                Margin="0,0,15,0"/>
+                                        <Entry Text="{Binding TypeOfConstruction}"
+                                               IsEnabled="False"/>
                                     </StackLayout>
                                 </Frame>
-                        
+                                <Frame BackgroundColor="Transparent" BorderColor="DarkGray" Padding="0" Margin="0,10,0,0" CornerRadius="10" HorizontalOptions="FillAndExpand">
+
+                                    <StackLayout Orientation="Horizontal">
+                                    <Frame HeightRequest="25" BackgroundColor="AliceBlue" CornerRadius="50" WidthRequest="25" Padding="0" Margin="7"></Frame>
+                                    <!--<Entry 
+                                        Text="{Binding Premium}" 
+                                        Placeholder="0-AnnualPremium,1-TermlyPremium,2-MonthlyPremium,"
+                                        TextColor="Purple" 
+                                        HorizontalOptions="FillAndExpand" 
+                                        Margin="0,0,15,0"/>-->
+                                    <Picker Title="Premium Plan" 
+                                            
+                                                TitleColor="#0279c9"
+                                                ItemsSource="{Binding ListInsurancePremium}"
+                                                ItemDisplayBinding="{Binding Name}"
+                                                SelectedItem="{Binding Premia}"
+                                                HorizontalOptions="FillAndExpand"
+                                                Margin="0,0,15,0"/>
+                                    <Entry Text="{Binding Premium}"
+                                               IsEnabled="False"/>
+                                </StackLayout>
+</Frame>
+
 
 
 
@@ -85,8 +103,8 @@
                             <Button 
                                 CornerRadius="5"
                                 Text="Generate Quote" 
-                                Command="{Binding QuatationCommand}" 
-                                BackgroundColor="DarkBlue" 
+                                Command="{Binding HomeQuotationCommand}" 
+                                BackgroundColor="#0279c9" 
                                 FontAttributes="Bold" 
                                 
                                 TextColor="White"/>

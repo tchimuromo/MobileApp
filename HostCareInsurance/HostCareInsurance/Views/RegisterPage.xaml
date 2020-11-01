@@ -27,7 +27,7 @@
                 <Frame BackgroundColor="White" BorderColor="FloralWhite" HasShadow="True" HeightRequest="700" HorizontalOptions="FillAndExpand">
                     <StackLayout>
                         <StackLayout HorizontalOptions="CenterAndExpand">
-                            <Label Text="Provide your user details" TextColor="DarkBlue" FontAttributes="Bold" FontSize="20"/>
+                                <Label Text="Provide your user details" TextColor="#0279c9" FontAttributes="Bold" FontSize="20"/>
                         </StackLayout>
                         <StackLayout Margin="0,25,0,0">
                             <Frame BackgroundColor="Transparent" BorderColor="DarkGray" Padding="0" Margin="0" CornerRadius="10" HorizontalOptions="FillAndExpand">
@@ -36,7 +36,7 @@
                                     <Entry 
                                         Placeholder="Full Name" 
                                         Text="{Binding FullName}" 
-                                        TextColor="Purple" 
+                                        TextColor="Black" 
                                         HorizontalOptions="FillAndExpand" 
                                         Margin="0,0,15,0"/>
                                 </StackLayout>
@@ -47,7 +47,7 @@
                                     <Entry 
                                         Placeholder="Email" 
                                         Text="{Binding Email}" 
-                                        TextColor="Purple" 
+                                        TextColor="Black" 
                                         HorizontalOptions="FillAndExpand" 
                                         Margin="0,0,15,0"/>
                                 </StackLayout>
@@ -59,7 +59,7 @@
                                     <Entry 
                                         Placeholder="Address" 
                                         Text="{Binding Address}" 
-                                        TextColor="Purple" 
+                                        TextColor="Black" 
                                         HorizontalOptions="FillAndExpand" 
                                         Margin="0,0,15,0"/>
                                 </StackLayout>
@@ -79,7 +79,7 @@
                                         BindingContext="{x:Binding }"/>-->
                                         <!---->
                                         <DatePicker Date="{Binding DateOfBirth}"
-                                                    MinimumDate="01-01-1960"
+                                                    MinimumDate="01-01-1980"
                                                      HorizontalOptions="FillAndExpand" 
                                         Margin="0,0,15,0"/>
                                     </StackLayout>
@@ -91,7 +91,7 @@
                                         <Entry 
                                         Text="{Binding NationalID}" 
                                         Placeholder="National ID"
-                                        TextColor="Purple" 
+                                        TextColor="Black" 
                                         HorizontalOptions="FillAndExpand" 
                                         Margin="0,0,15,0"/>
                                     </StackLayout>
@@ -103,7 +103,7 @@
                                         <Entry 
                                         Text="{Binding PhoneNumber}" 
                                         Placeholder="Phone Number"
-                                        TextColor="Purple" 
+                                        TextColor="Black" 
                                         HorizontalOptions="FillAndExpand" 
                                         Margin="0,0,15,0"/>
                                     </StackLayout>
@@ -114,7 +114,7 @@
                         </StackLayout>
                             <StackLayout VerticalOptions="Center" HorizontalOptions="Center">
                                 <AbsoluteLayout>
-                                    <ActivityIndicator IsRunning="{Binding IsBusy}" Color ="Red" 
+                                    <ActivityIndicator IsRunning="{Binding IsBusy}" Color ="Orange" 
                                                        AbsoluteLayout.LayoutFlags="PositionProportional"
                                                        />
                                 </AbsoluteLayout>
@@ -125,7 +125,7 @@
                             <Button 
                                 Text="Next" 
                                 Command="{Binding RegisterCommand}" 
-                                BackgroundColor="DarkBlue" 
+                                BackgroundColor="#0279c9" 
                                 FontAttributes="Bold" 
                                 CornerRadius="5" 
                                 TextColor="White"/>

@@ -14,13 +14,13 @@ namespace HostCareInsurance.Models.ViewModels
 {
     public class VehicleQuotationViewModel:INotifyPropertyChanged
     {
-        private List<VehicleMake> listVehicleMakes;
-        public List<VehicleMake> ListVehicleMakes { 
-            get { return listVehicleMakes; }
+        private List<VehicleUse> listVehicleUse;
+        public List<VehicleUse> ListVehicleUses { 
+            get { return listVehicleUse; }
             set
             {
-                if (Equals(value, listVehicleMakes)) return;
-                listVehicleMakes = value;
+                if (Equals(value, listVehicleUse)) return;
+                listVehicleUse = value;
                 OnPropertyChanged();
             }
             }
@@ -62,9 +62,9 @@ namespace HostCareInsurance.Models.ViewModels
             set { make = value; OnPropertyChanged(); }
         }
 
-        private VehicleMake vehiclemake { get; set; }
+        private VehicleUse vehiclemake { get; set; }
         
-        public VehicleMake Vehiclemake
+        public VehicleUse Vehiclemake
         {
             get { return vehiclemake; }
             set
@@ -72,7 +72,7 @@ namespace HostCareInsurance.Models.ViewModels
                 if (vehiclemake != value)
                 {
                     vehiclemake = value;
-                    Make = vehiclemake.Name;
+                    VehicleUse = vehiclemake.Name;
                 }
             }
         }
@@ -229,19 +229,18 @@ namespace HostCareInsurance.Models.ViewModels
         public VehicleQuotationViewModel()
         {
             QuatationCommand = new Command(async () => await ExecuteQuatationCommand());
-            ListVehicleMakes = GetMakes();
+            ListVehicleUses = GetUses();
             ListInsurancePremium = GetInsurancePremia();
             
         }
 
-        public static List<VehicleMake> GetMakes()
+        public static List<VehicleUse> GetUses()
         {
-            var makes = new List<VehicleMake>()
+            var makes = new List<VehicleUse>()
             {
-                new VehicleMake(){Key=1, Name ="Toyota"},
-                new VehicleMake(){Key=2, Name ="Nissan"},
-                new VehicleMake(){Key=3, Name ="Benz"},
-                new VehicleMake(){Key=4, Name ="Honda"},
+                new VehicleUse(){Key=1, Name ="Private"},
+                new VehicleUse(){Key=2, Name ="Commercial"},
+               
             };
             return makes;
         }
@@ -249,9 +248,10 @@ namespace HostCareInsurance.Models.ViewModels
         {
             var insurancePremia = new List<InsurancePremium>()
             {
-                new InsurancePremium(){Key=1, Name ="AnnualPremium"},
-                new InsurancePremium(){Key=2, Name ="MonthlyPremium"},
-                new InsurancePremium(){Key=3, Name ="TermlyPremium"},
+                new InsurancePremium(){Key=1, Name ="Annual Premium"},
+                new InsurancePremium(){Key=2, Name ="Monthly Premium"},
+                new InsurancePremium(){Key=3, Name ="Termly Premium"},
+                new InsurancePremium(){Key=4, Name ="Quarterly Premium"},
             };
             return insurancePremia;
         }
@@ -291,11 +291,9 @@ namespace HostCareInsurance.Models.ViewModels
                // Configs.Config.CoverType = quatation.Premium;
                 await Application.Current.MainPage.Navigation.PushAsync(new PaymentPage(new PaymentViewModel(quatation)), true);
 
-
             }
             else
             {
-
 
             }
         }

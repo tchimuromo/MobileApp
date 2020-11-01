@@ -20,6 +20,7 @@ namespace MobileApp.Models.ViewModels
         private ApiServices apiServices = new ApiServices();
         private bool isBusy;
         private bool isEnabled;
+        private bool rememberMe;
 
         public event PropertyChangedEventHandler PropertyChanged;
         public void OnPropertyChanged([CallerMemberName] string name = "")
@@ -32,6 +33,11 @@ namespace MobileApp.Models.ViewModels
         {
             get { return isBusy; }
             set { isBusy = value; OnPropertyChanged(); }
+        }
+         public bool RememberMe
+        {
+            get { return rememberMe; }
+            set { rememberMe = value; OnPropertyChanged(); }
         }
         public bool IsEnabled
         {
@@ -94,6 +100,8 @@ namespace MobileApp.Models.ViewModels
 
                     // await DisplayAlert("Alert", "You have been alerted", "OK");
                     await Application.Current.MainPage.DisplayAlert("Login Failed", "Failed to login, Check your credentials", "Ok");
+                IsBusy = false;
+                
                 }
             
             

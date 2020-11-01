@@ -5,7 +5,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:pv="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
              mc:Ignorable="d"
-             x:Class="HostCareInsurance.Views.DashboardPage">
+             x:Class="HostCareInsurance.Views.DashboardPage"
+             NavigationPage.HasNavigationBar="False">
     
         <ScrollView>
         <Grid BackgroundColor="#F3FSF9" RowSpacing="0"
@@ -32,16 +33,16 @@
                         <RowDefinition Height="*"/>
                         <RowDefinition Height="Auto"/>
                     </Grid.RowDefinitions>
-                    <BoxView Grid.RowSpan="2" WidthRequest="80" BackgroundColor="#00C6AE"/>
+                    <BoxView Grid.RowSpan="2" WidthRequest="80" BackgroundColor="	#0279c9"/>
                     <BoxView Grid.Column="1" Grid.RowSpan="2" WidthRequest="80" BackgroundColor="White"/>
-                    <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+                    <!--<StackLayout HorizontalOptions="Center" VerticalOptions="Center">
                         <Label Text="23" TextColor="White" FontSize="36" HorizontalOptions="Center"/>
                         <Label Text="March" TextColor="White" FontSize="12" HorizontalOptions="Center" Margin="0,-10,0,0"/>
                     </StackLayout>
                     <StackLayout Grid.Column="1" HorizontalOptions="Center" VerticalOptions="Center">
                         <Label Text="28" TextColor="#455399" FontSize="36" HorizontalOptions="Center"/>
                         <Label Text="March" TextColor="#455399" FontSize="12" HorizontalOptions="Center" Margin="0,-10,0,0"/>
-                    </StackLayout>
+                    </StackLayout>-->
                     <BoxView Grid.Row="1" Grid.ColumnSpan="2" WidthRequest="73" HeightRequest="1" BackgroundColor="#F1F3F7"
                          HorizontalOptions="Center" VerticalOptions="Center"/>
                     <pv:PancakeView Grid.Row="1" HeightRequest="7" WidthRequest="7" BorderThickness="2"
@@ -136,7 +137,7 @@
                     <Button 
                                 Text="Add Another Vehicle" 
                                 Command="{Binding GoRegisterCommand}" 
-                                BackgroundColor="DarkBlue" 
+                                BackgroundColor="	#0279c9" 
                                 FontAttributes="Bold" 
                                 CornerRadius="2" 
                                 TextColor="White"/>

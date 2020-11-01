@@ -38,8 +38,10 @@ namespace HostCareInsurance.Models.ViewModels
         public double Amount { get { return amount; } set { amount = value; OnPropertyChanged(); } }
 
         private string cover = Configs.Config.CoverType.ToString();
-        public string Cover { get { return cover; } set { cover = value; OnPropertyChanged(); } }
+        private HomeQuotationResponseModel quotation;
 
+        public string Cover { get { return cover; } set { cover = value; OnPropertyChanged(); } }
+       
 
         public PaymentViewModel(QuatationResponseModel quatation)
         {
@@ -47,8 +49,15 @@ namespace HostCareInsurance.Models.ViewModels
             this.Payment = this.quatation = quatation;
         }
 
-        private async Task ExecutePaymentCommmand()
+        public PaymentViewModel(HomeQuotationResponseModel quotation)
         {
+            this.quotation = quotation;
+        }
+
+        private async Task ExecutePaymentCommmand()
+
+        {
+            IsBusy = true;
             PaymentModel model = new PaymentModel() { Amount = 120 };
 
             var response = await Task.Run(() => HttpServices.Pay("api/Paynow/DebitExpress", model, out isSuccess));
@@ -57,9 +66,10 @@ namespace HostCareInsurance.Models.ViewModels
             {
                 var token = Configs.Config.Token;
                 var result = JsonConvert.DeserializeObject<PaymentModelResponse>(response);
+                IsBusy = false;
+                await Application.Current.MainPage.DisplayAlert("Payment", "Thank you for chosing to insure with HostCare Insurance, Please Note you will be notified and given your Acount Details through an SMS once HostCare has confirmed your payment.", "Ok");
 
-                await Application.Current.MainPage.DisplayAlert("Payment Successfull", "Thank you for insuring with HostCare Insurance", "Ok");
-                await Application.Current.MainPage.Navigation.PopToRootAsync();
+                await Application.Current.MainPage.Navigation.PushAsync(new HomePage(new HomeViewModel()));
                 if (token != "")
                 {
                     await Application.Current.MainPage.Navigation.PushAsync(new DashboardPage(new VehicleInsuranceModel()));
@@ -70,6 +80,7 @@ namespace HostCareInsurance.Models.ViewModels
                 }
                 
             }
+            IsBusy = false;
         }
     }
 

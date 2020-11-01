@@ -13,11 +13,11 @@ namespace MobileApp.Services
     {
         //public static string access_account = "";
 
-        //public static string Url = "http://192.168.43.194/HostInsuranceAPI/";
+        //public static string Url = "http://192.168.43.194/HostcareInsurance/";
         //public static string Url = $"http://{Config.IPAddress}/HostInsuranceAPI/";
-        public static string Url = "http://192.168.100.12/HostInsuranceAPI/";
-        //public static string Url = "http://192.168.100.161/HostInsuranceAPI/";
-        //public static string a2Url = "http://localhost:31396";
+        public static string Url = "http://192.168.43.87/HostcareInsurance/";
+        //public static string Url = "http://192.168.0.136/HostcareInsurance/";
+        //public static string Url = "http://192.168.0.171//HostcareInsurance/";
 
         //public static string platformId = "01";
 

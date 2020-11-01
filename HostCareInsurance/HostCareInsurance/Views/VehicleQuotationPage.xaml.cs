@@ -25,41 +25,41 @@ namespace HostCareInsurance.Views
             InitializeComponent();
             BindingContext = this.model = model;
            
-            takePhoto.Clicked += async (sender, args) =>
-            {
+            //takePhoto.Clicked += async (sender, args) =>
+            //{
 
-                if (!CrossMedia.Current.IsCameraAvailable || !CrossMedia.Current.IsTakePhotoSupported)
-                {
-                    await DisplayAlert("No Camera", ":( No camera avaialble.", "OK");
-                    return;
-                }
-                try
-                {
-                    var file = await CrossMedia.Current.TakePhotoAsync(new Plugin.Media.Abstractions.StoreCameraMediaOptions
-                    {
-                        Directory = "Sample",
-                        Name = "test.jpg",
-                        SaveToAlbum = saveToGallery.IsToggled
-                    });
+            //    if (!CrossMedia.Current.IsCameraAvailable || !CrossMedia.Current.IsTakePhotoSupported)
+            //    {
+            //        await DisplayAlert("No Camera", ":( No camera avaialble.", "OK");
+            //        return;
+            //    }
+            //    try
+            //    {
+            //        var file = await CrossMedia.Current.TakePhotoAsync(new Plugin.Media.Abstractions.StoreCameraMediaOptions
+            //        {
+            //            Directory = "Sample",
+            //            Name = "test.jpg",
+            //            SaveToAlbum = saveToGallery.IsToggled
+            //        });
 
-                    if (file == null)
-                        return;
+            //        if (file == null)
+            //            return;
 
-                    await DisplayAlert("File Location", (saveToGallery.IsToggled ? file.AlbumPath : file.Path), "OK");
+            //        await DisplayAlert("File Location", (saveToGallery.IsToggled ? file.AlbumPath : file.Path), "OK");
 
-                    image.Source = ImageSource.FromStream(() =>
-                    {
-                        var stream = file.GetStream();
-                        file.Dispose();
-                        return stream;
-                    });
-                }
-                catch //(Exception ex)
-                {
-                    // Xamarin.Insights.Report(ex);
-                    // await DisplayAlert("Uh oh", "Something went wrong, but don't worry we captured it in Xamarin Insights! Thanks.", "OK");
-                }
-            };
+            //        image.Source = ImageSource.FromStream(() =>
+            //        {
+            //            var stream = file.GetStream();
+            //            file.Dispose();
+            //            return stream;
+            //        });
+            //    }
+            //    catch //(Exception ex)
+            //    {
+            //        // Xamarin.Insights.Report(ex);
+            //        // await DisplayAlert("Uh oh", "Something went wrong, but don't worry we captured it in Xamarin Insights! Thanks.", "OK");
+            //    }
+            //};
 
             //takePhoto.Clicked += async (sender, args) =>
             //{

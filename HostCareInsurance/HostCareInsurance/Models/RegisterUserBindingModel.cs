@@ -25,7 +25,7 @@ namespace MobileApp.Models
 
         public string ConfirmPassword { get; set; }
 
-        public virtual string Covertype { get; set; }
+        public virtual Covertype Covertype { get; set; }
         public virtual string PhoneNumber { get; set; }
     }
 }
